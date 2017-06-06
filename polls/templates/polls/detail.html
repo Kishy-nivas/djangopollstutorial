@@ -1,0 +1,13 @@
+{% extends 'polls/base.html'%}
+{% block content %}
+<h3> Question detail : </h3>
+<strong>name : {{question_detail.question_text}} </strong>
+<h5>Published date : {{question_detail.pub_date|date:"M d,y" }}</h5>
+<h3> Given choices </h3>
+<ul>
+{% for choice in question_detail.choice_set.all %}
+<li> {{choice.choice_text}}</li>
+votes :{{choice.votes }}
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from polls.models import Question,Choice
 
@@ -15,4 +15,5 @@ def votes(request,question_id):
     return HttpResponse("You are looking at votes for the question with id %s" % question_id)
 
 def detail(request,question_id):
-    return HttpResponse("You are looking at the details page %s" % question_id)
+    question_detail = get_object_or_404(Question,id=question_id)
+    return render(request,'polls/detail.html',{'question_detail':question_detail})
