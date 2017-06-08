@@ -1,8 +1,7 @@
-{% extends 'polls/base.html' %}
-{% block content %}
+{% extends 'polls/base.html' %} {% block content %}
 <ul>
-    {% for question in question_list %}
-    <li><a href ="{% url 'detail' question.id %}">{{question.question_text}}</a></li>
-{% endfor %}
+  {% for question in question_list %}
+  <li><a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a></li>
+  {% endfor %}
 </ul>
 {% endblock %}
